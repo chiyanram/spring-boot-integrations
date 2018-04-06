@@ -1,0 +1,3 @@
+Ram,admin,ADMIN
+Vijay,admin,ADMIN
+sai,admin,ADMIN
