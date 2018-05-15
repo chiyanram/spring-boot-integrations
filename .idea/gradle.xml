@@ -10,58 +10,45 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SpringReactive" />
             <option value="$PROJECT_DIR$/spring-kafka" />
             <option value="$PROJECT_DIR$/spring-security" />
+            <option value="$PROJECT_DIR$/spring-service-registry" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SpringReactive" />
             <option value="$PROJECT_DIR$/spring-kafka" />
             <option value="$PROJECT_DIR$/spring-security" />
+            <option value="$PROJECT_DIR$/spring-service-registry" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-kafka" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-service-registry" />
         <option name="gradleHome" value="D:/softwares/gradle-4.4.1" />
         <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SpringReactive" />
             <option value="$PROJECT_DIR$/spring-kafka" />
             <option value="$PROJECT_DIR$/spring-security" />
+            <option value="$PROJECT_DIR$/spring-service-registry" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SpringReactive" />
             <option value="$PROJECT_DIR$/spring-kafka" />
             <option value="$PROJECT_DIR$/spring-security" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-security" />
-        <option name="gradleHome" value="D:/softwares/gradle-4.4.1" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/spring-kafka" />
-            <option value="$PROJECT_DIR$/spring-security" />
-          </set>
-        </option>
-        <option name="useAutoImport" value="true" />
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/spring-kafka" />
-            <option value="$PROJECT_DIR$/spring-security" />
+            <option value="$PROJECT_DIR$/spring-service-registry" />
           </set>
         </option>
       </GradleProjectSettings>

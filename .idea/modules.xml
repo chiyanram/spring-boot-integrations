@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring.iml" filepath="$PROJECT_DIR$/Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringReactive/SpringReactive.iml" filepath="$PROJECT_DIR$/SpringReactive/SpringReactive.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-kafka/spring-kafka.iml" filepath="$PROJECT_DIR$/spring-kafka/spring-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security/spring-security.iml" filepath="$PROJECT_DIR$/spring-security/spring-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-service-registry/spring-service-registry.iml" filepath="$PROJECT_DIR$/spring-service-registry/spring-service-registry.iml" />
     </modules>
   </component>
 </project>

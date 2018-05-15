@@ -1,0 +1,12 @@
+server:
+  port: 9100
+
+spring:
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+  application:
+   name: spring-service-registry
+
+management.endpoints.web.exposure.include: '*'
