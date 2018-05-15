@@ -1,0 +1,6 @@
+spring:
+  application:
+    name:  IOCApp
+
+server:
+  port: 9003

@@ -21,6 +21,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.0.RC1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.16.20" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.cloud:spring-cloud-netflix-core:2.0.0.RC1" level="project" />
@@ -36,7 +37,10 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.cloud:spring-cloud-consul-discovery:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: joda-time:joda-time:2.9.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-logging:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.annotation:javax.annotation-api:1.3.2" level="project" />
@@ -77,6 +81,8 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.reactivex:rxjava:1.2.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.logging.log4j:log4j-to-slf4j:2.10.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.slf4j:jul-to-slf4j:1.7.25" level="project" />
@@ -115,6 +121,8 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.0.RC1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-properties-migrator:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.cloud:spring-cloud-netflix-core:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-aop:2.0.0.RELEASE" level="project" />
@@ -129,14 +137,18 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.cloud:spring-cloud-consul-discovery:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: joda-time:joda-time:2.9.9" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-configuration-metadata:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-logging:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.annotation:javax.annotation-api:1.3.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-context:5.0.4.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-expression:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-aop:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-beans:5.0.4.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-expression:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-core:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.yaml:snakeyaml:1.19" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.3" level="project" />
@@ -170,6 +182,9 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxjava:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.logging.log4j:log4j-to-slf4j:2.10.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:jul-to-slf4j:1.7.25" level="project" />
@@ -208,6 +223,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.0.RC1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.cloud:spring-cloud-netflix-core:2.0.0.RC1" level="project" />
@@ -223,6 +239,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.cloud:spring-cloud-consul-discovery:2.0.0.RC1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: joda-time:joda-time:2.9.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-test-autoconfigure:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-test:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.jayway.jsonpath:json-path:2.4.0" level="project" />
@@ -234,6 +252,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.skyscreamer:jsonassert:1.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-test:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-context:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-expression:5.0.4.RELEASE" level="project" />
@@ -275,6 +294,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.reactivex:rxjava:1.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.minidev:json-smart:2.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.logging.log4j:log4j-to-slf4j:2.10.0" level="project" />
@@ -318,28 +339,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-resolver:4.1.22.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-common:4.1.22.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-properties-migrator:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-configuration-metadata:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-properties-migrator:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-configuration-metadata:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.micrometer:micrometer-core:1.0.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.boot:spring-boot-actuator:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
   </component>
 </module>
