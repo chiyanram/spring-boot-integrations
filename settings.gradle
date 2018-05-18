@@ -1,4 +1,3 @@
-include 'spring-kafka'
 include 'spring-security'
 include 'SpringReactive'
 include 'spring-service-registry'
