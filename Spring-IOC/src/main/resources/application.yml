@@ -3,4 +3,4 @@ spring:
     name:  IOCApp
 
 server:
-  port: 9003
+  port: 9000

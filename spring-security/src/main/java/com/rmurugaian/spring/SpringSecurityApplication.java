@@ -42,7 +42,7 @@ public class SpringSecurityApplication implements CommandLineRunner {
             .map(array -> new User(array[0], passwordEncoder().encode(array[1]), array[2]))
             .forEach(userRepository::save);
 
-        userRepository.findAll().forEach(System.out::println);
+        userRepository.findAll().forEach(user -> log.error("USer : {}", user));
     }
 
     @Bean

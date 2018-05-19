@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: SpringBasicAuth
+  security:
+    user:
+      name: ram
+      password: secret
+      roles: Admin
+server:
+  port: 9009
+
+
+
