@@ -5,6 +5,5 @@ spring:
         git:
           uri: https://github.com/chiyanram/configData
 
-
 server:
   port: 9011
