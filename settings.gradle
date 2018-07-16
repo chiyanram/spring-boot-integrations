@@ -4,3 +4,5 @@ include 'Spring-IOC'
 include 'spring-security-basic-auth'
 include 'spring-cloud-config'
 include 'spring-cloud-config-client'
+include 'spring-micrometer'
+
