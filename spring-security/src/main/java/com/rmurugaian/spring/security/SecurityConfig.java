@@ -23,11 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
+            .antMatchers("/login")
+            .permitAll()
             .anyRequest()
             .authenticated()
             .and()
             .httpBasic();
     }
-
 
 }

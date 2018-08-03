@@ -21,7 +21,6 @@ public class Student {
     private Long id;
 
     @Version
-    @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     private Date date;
 

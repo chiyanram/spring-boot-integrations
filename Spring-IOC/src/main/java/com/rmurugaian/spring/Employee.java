@@ -11,7 +11,12 @@ import lombok.Value;
 public class Employee {
     private final String name;
 
+    private Employee(){
+        System.out.println("Employee Constructor");
+    }
+
     private Employee(final String name) {
         this.name = name;
+        System.out.println("Employee Constructor");
     }
 }

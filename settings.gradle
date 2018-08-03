@@ -1,8 +1,9 @@
 include 'spring-security'
 include 'spring-service-registry'
-include 'Spring-IOC'
+include 'Spring-ioc'
 include 'spring-security-basic-auth'
 include 'spring-cloud-config'
 include 'spring-cloud-config-client'
 include 'spring-micrometer'
+include 'spring-jpa-hibernate-locking'
 
