@@ -1,7 +1,0 @@
-management:
-  endpoint:
-    prometheus:
-      enabled: true
-
-server:
-  port: 9201

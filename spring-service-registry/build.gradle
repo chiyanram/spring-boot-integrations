@@ -1,9 +1,5 @@
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-consul-discovery')
-	compileOnly('org.projectlombok:lombok')
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.1.RELEASE'
 
-	runtime("org.springframework.boot:spring-boot-properties-migrator")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

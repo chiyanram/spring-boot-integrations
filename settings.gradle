@@ -1,3 +1,5 @@
+rootProject.name = "Spring Microservices"
+
 include 'spring-security'
 include 'spring-service-registry'
 include 'Spring-ioc'

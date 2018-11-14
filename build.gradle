@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.3.RELEASE'
+		springBootVersion = '2.1.0.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -30,6 +30,7 @@ ext {
 subprojects{
 
     apply plugin: 'java'
+    apply plugin: 'idea'
     apply plugin: 'eclipse'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
@@ -44,16 +45,13 @@ subprojects{
     }
 
     dependencies {
-		compile('org.springframework.cloud:spring-cloud-starter-consul-config')
-		compile('org.springframework.kafka:spring-kafka')
-		testCompile('org.springframework.boot:spring-boot-starter-test')
-        compile('org.springframework.boot:spring-boot-starter-security')
         compile('org.springframework.boot:spring-boot-starter-web')
-        compile('org.springframework.boot:spring-boot-starter-data-jpa')
-        compile('org.hsqldb:hsqldb:2.4.0')
+
         runtime('org.springframework.boot:spring-boot-devtools')
+
         compileOnly('org.springframework.boot:spring-boot-configuration-processor')
         compileOnly('org.projectlombok:lombok')
+
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile('org.springframework.security:spring-security-test')
 	}
