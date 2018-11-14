@@ -7,7 +7,7 @@ spring:
       password: secret
       roles: Admin
 server:
-  port: 9009
+  port: 9006
 
 
 

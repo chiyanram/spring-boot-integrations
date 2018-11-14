@@ -1,7 +1,6 @@
 spring:
   application:
-    name: SpringSecurity
-
+    name: 'spring-security'
 
 server:
-  port: 9001
+  port: 9005
