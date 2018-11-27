@@ -1,0 +1,4 @@
+configuration:
+  name: 'spring-config'
+server:
+  port: 9008

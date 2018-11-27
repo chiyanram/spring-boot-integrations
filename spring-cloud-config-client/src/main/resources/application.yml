@@ -1,5 +1,13 @@
 spring:
   application:
-    name: 'spring-cloud-config-client'
+    name: cloud-config-client
+  cloud:
+    config:
+      uri: http://localhost:8888
 server:
   port: 9002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

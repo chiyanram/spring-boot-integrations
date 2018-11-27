@@ -1,20 +1,7 @@
-buildscript {
-    ext {
-        springBootVersion = '2.1.0.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/milestone" }
-
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
 plugins {
     id 'io.franzbecker.gradle-lombok' version '1.14'
     id 'java'
+    id 'org.springframework.boot' version '2.1.0.RELEASE'
 }
 
 lombok {
@@ -22,6 +9,7 @@ lombok {
 }
 
 group = 'com.rmurugaian.spring'
+
 version = '0.0.1-SNAPSHOT'
 
 
@@ -54,6 +42,7 @@ subprojects {
 
     dependencies {
         compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-actuator')
 
         runtime('org.springframework.boot:spring-boot-devtools')
 

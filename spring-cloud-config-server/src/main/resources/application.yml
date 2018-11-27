@@ -4,9 +4,4 @@ spring:
       server:
         git:
           uri: https://github.com/chiyanram/configData
-  application:
-    name: 'spring-cloud-config'
-
-server:
-  port: 9001
-
+server.port: 8888
