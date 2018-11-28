@@ -1,0 +1,6 @@
+dependencies {
+    implementation("com.github.kstyrc:embedded-redis:0.6")
+    implementation("org.springframework.session:spring-session-data-redis")
+    implementation("com.google.guava:guava:21.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+}
