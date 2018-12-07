@@ -1,6 +1,5 @@
 package com.rmurugaian.spring.security;
 
-import com.rmurugaian.spring.repository.UserRepository;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,22 +12,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserRepository userRepository;
-
-    public SecurityConfig(final UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-            .antMatchers("/login")
-            .permitAll()
-            .anyRequest()
-            .authenticated()
-            .and()
-            .httpBasic();
+                .authorizeRequests()
+                .antMatchers("/login")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .httpBasic();
     }
 
 }

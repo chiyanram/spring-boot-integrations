@@ -12,7 +12,7 @@ public class EmployeeProxyService {
 
     public EmployeeProxyService(final Employee employee) {
         this.employee = employee;
-        System.out.println(employee.getClass());
+        System.out.println(this.employee.getClass());
     }
 
 

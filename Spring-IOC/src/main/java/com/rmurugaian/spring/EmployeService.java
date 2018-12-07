@@ -10,8 +10,10 @@ public class EmployeService {
 
     private final Employee employee;
 
-    public EmployeService(final Employee employee){
+    public EmployeService(final Employee employee) {
         this.employee = employee;
+
+        System.out.println(this.employee.getClass());
     }
 
 }

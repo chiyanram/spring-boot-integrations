@@ -2,6 +2,7 @@ rootProject.name = "Spring Microservices"
 
 include 'spring-security'
 include 'spring-service-registry'
+include 'spring-service-registry-client'
 include 'spring-ioc'
 include 'spring-security-basic-auth'
 include 'spring-cloud-config-server'
@@ -9,4 +10,5 @@ include 'spring-cloud-config-client'
 include 'spring-jpa-hibernate-locking'
 include 'spring-configuration-basic'
 include 'spring-cloud-session'
+include 'spring-webclient'
 

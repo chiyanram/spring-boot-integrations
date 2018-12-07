@@ -1,0 +1,3 @@
+spring.application.name: registry-client
+
+server.port: 9010
