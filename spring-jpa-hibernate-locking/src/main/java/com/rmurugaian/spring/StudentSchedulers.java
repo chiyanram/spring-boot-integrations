@@ -1,9 +1,7 @@
 package com.rmurugaian.spring;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,7 +16,7 @@ public class StudentSchedulers {
         this.studentRepository = studentRepository;
     }
 
-    @Scheduled(initialDelay = 9000, fixedDelay = 9000)
+    //@Scheduled(initialDelay = 9000, fixedDelay = 9000)
     public void runStudent() {
 
         final List<Student> byStatus = studentRepository.findByStatus("NEW");
@@ -26,12 +24,9 @@ public class StudentSchedulers {
         System.out.println("NO OF STUDENT " + byStatus.size());
 
         byStatus
-            .stream()
-            .map(student -> {
-                student.setStatus("UPDATE");
-                return student;
-            })
-            .forEach(studentRepository::save);
+                .stream()
+                .peek(student -> student.setStatus("UPDATE"))
+                .forEach(studentRepository::save);
 
         System.out.println(studentRepository.findAll());
 

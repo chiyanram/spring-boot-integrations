@@ -11,4 +11,5 @@ include 'spring-jpa-hibernate-locking'
 include 'spring-configuration-basic'
 include 'spring-cloud-session'
 include 'spring-webclient'
+include 'spring-embedded-rabbitmq'
 
