@@ -6,6 +6,7 @@ plugins {
 }
 
 lombok {
+    version = "1.18.4"
     sha256 = "" // skip verifyLombok task
 }
 
@@ -13,6 +14,8 @@ group = 'com.rmurugaian.spring'
 
 version = '0.0.1-SNAPSHOT'
 
+
+bootJar.enabled = false
 
 repositories {
     mavenCentral()
@@ -36,6 +39,10 @@ subprojects {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
+    lombok {
+        version = "1.18.4"
+        sha256 = "" // skip verifyLombok task
+    }
 
     repositories {
         mavenCentral()
@@ -49,7 +56,7 @@ subprojects {
         runtime('org.springframework.boot:spring-boot-devtools')
 
         compileOnly('org.springframework.boot:spring-boot-configuration-processor')
-        compileOnly('org.projectlombok:lombok')
+        compileOnly('org.projectlombok:lombok:1.18.4')
 
         compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.15'
         testCompile group: 'org.spockframework', name: 'spock-core', version: '1.2-groovy-2.4'

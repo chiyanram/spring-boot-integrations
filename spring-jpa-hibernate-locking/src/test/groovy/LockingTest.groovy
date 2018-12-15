@@ -4,12 +4,14 @@ import com.rmurugaian.spring.StudentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.transaction.PlatformTransactionManager
+import spock.lang.Ignore
 import spock.lang.Specification
 
 import javax.sql.DataSource
 import java.sql.Connection
 import java.sql.PreparedStatement
 
+@Ignore
 @SpringBootTest(classes = [HibernateLockingApplication.class])
 class LockingTest extends Specification {
 

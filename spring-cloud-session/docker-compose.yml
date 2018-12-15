@@ -1,0 +1,13 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+      - "9009:9009"
+    links:
+      - "db:redis"
+  db:
+    image: "redis:alpine"
+    hostname: cloud-session-redis
+    ports:
+      - "6379:6379"
