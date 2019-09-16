@@ -1,9 +1,0 @@
-server:
-  port: 9009
-
-spring:
-  application:
-    name: spring cloud session
-  redis:
-    host: cloud-session-redis
-    port: 6379

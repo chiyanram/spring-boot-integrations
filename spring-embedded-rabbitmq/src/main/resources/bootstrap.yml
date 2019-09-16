@@ -1,6 +1,0 @@
-server:
-  port: 9012
-
-spring:
-  application:
-    name: embedded-rabbitmq

@@ -1,6 +1,0 @@
-spring.application.name: registry-client
-server.port: 9010
-spring:
-  cloud:
-    config:
-      uri: http://localhost:9001/
