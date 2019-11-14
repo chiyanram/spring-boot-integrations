@@ -1,6 +1,8 @@
-package com.rmurugaian.spring.cache;
+package com.rmurugaian.spring.cache.controller;
 
 import com.google.common.collect.ImmutableSet;
+import com.rmurugaian.spring.cache.service.CacheService;
+import com.rmurugaian.spring.cache.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

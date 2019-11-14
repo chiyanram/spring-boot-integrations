@@ -23,6 +23,7 @@ public class HazelcastConfiguration {
                     .setMaxSizeConfig(new MaxSizeConfig(200, MaxSizeConfig.MaxSizePolicy.FREE_HEAP_SIZE))
                     .setEvictionPolicy(EvictionPolicy.LRU)
                     .setTimeToLiveSeconds(20000));
+
         config.getSerializationConfig()
             .addSerializerConfig(new SerializerConfig()
                 .setTypeClass(ImmutableSet.class)

@@ -1,7 +1,7 @@
-package com.rmurugaian.spring.cache;
+package com.rmurugaian.spring.cache.service;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.rmurugaian.spring.cache.domain.Person;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

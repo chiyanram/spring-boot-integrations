@@ -1,4 +1,4 @@
-package com.rmurugaian.spring.cache;
+package com.rmurugaian.spring.cache.domain;
 
 /**
  * @author rmurugaian 2019-11-14
