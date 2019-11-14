@@ -24,7 +24,7 @@ public class CacheController {
 
     @GetMapping("/all")
     public ImmutableSet<Person> all() {
-        logger.debug("Invoke All persons");
+        logger.debug("Invoke All persons controller");
         return cacheService.fetchAll();
     }
 }
