@@ -1,0 +1,8 @@
+server:
+  port: 9006
+
+spring:
+  application:
+    name: spring-boot-cache-integration
+
+logging.level.com.hazelcast: DEBUG

@@ -1,7 +1,7 @@
 plugins {
     java
     groovy
-    id("org.springframework.boot") version "2.0.6.RELEASE" apply false
+    id("org.springframework.boot") version "2.2.0.RELEASE" apply false
 }
 
 group = "com.rmurugaian.spring"
@@ -11,6 +11,7 @@ repositories {
 }
 
 val springCloudVersion = "Grrenwich.SR3"
+val lombokVersion = "1.18.4"
 
 subprojects {
     apply(plugin = "java")
@@ -29,20 +30,16 @@ subprojects {
         mavenCentral()
     }
 
-    configurations {
-        compileJava{
-            extendsFrom annotationProcessor
-        }
-    }
     dependencies {
+        implementation("com.google.guava:guava:28.1-jre")
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
 
-        runtimeOnly("org.springframework.boot:spring-boot-devtools")
-
+        implementation("com.fasterxml.jackson.datatype:jackson-datatype-guava")
         compileOnly("org.springframework.boot:spring-boot-configuration-processor")
-        compileOnly("org.projectlombok:lombok")
-        annotationProcessor("org.projectlombok:lombok")
+
+        compileOnly("org.projectlombok:lombok:${lombokVersion}")
+        annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
         testImplementation("org.codehaus.groovy:groovy-all:2.4.15")
         testImplementation("org.spockframework:spock-core:1.2-groovy-2.4")
@@ -51,7 +48,6 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
-
 
 }
 

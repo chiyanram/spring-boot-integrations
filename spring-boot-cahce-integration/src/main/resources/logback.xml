@@ -1,0 +1,35 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <!-- in the absence of the class attribute, it is assumed that the desired
+            discriminator type is ch.qos.logback.classic.sift.MDCBasedDiscriminator -->
+        <discriminator>
+            <key>category</key>
+            <defaultValue>spring-boot-cache-integration</defaultValue>
+        </discriminator>
+
+        <sift>
+            <appender name="${category}" class="ch.qos.logback.core.FileAppender">
+                <file>logs/${category}.log</file>
+                <append>true</append>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%d [%thread] %-5level %logger{36} %X{context} - %msg%n</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <logger name="com.rmurugaian.spring.cache" level="INFO"/>
+
+    <root>
+        <appender-ref ref="SIFT"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
