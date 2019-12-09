@@ -1,0 +1,148 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Service provides to access Pricing",
+    "version": "6.x",
+    "title": "Pricing Service API"
+  },
+  "host": "localhost:9108",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "pricing-controller",
+      "description": "Pricing Controller"
+    }
+  ],
+  "paths": {
+    "/prices": {
+      "get": {
+        "tags": [
+          "pricing-controller"
+        ],
+        "summary": "cartPricingResponseDTO",
+        "operationId": "cartPricingResponseDTOUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CartPricingResponseDTO"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CartCurrencyAmountDTO": {
+      "type": "object",
+      "properties": {
+        "isBoolean": {
+          "type": "boolean"
+        },
+        "totalPrice": {
+          "type": "string",
+          "example": "CAD 91.00",
+          "description": "The total price of the cart, expressed in a currency."
+        },
+        "unpromotedTotalPrice": {
+          "type": "string",
+          "example": "CAD 101.00",
+          "description": "The total price of the cart, expressed a currency, with no promotion applied."
+        }
+      },
+      "title": "CartCurrencyAmountDTO",
+      "description": "Cart currency amount"
+    },
+    "CartCurrencyAmountDTOMap": {
+      "type": "object",
+      "required": [
+        "CAD",
+        "USD"
+      ],
+      "properties": {
+        "AUD": {
+          "$ref": "#/definitions/CartCurrencyAmountDTO"
+        },
+        "CAD": {
+          "$ref": "#/definitions/CartCurrencyAmountDTO"
+        },
+        "USD": {
+          "$ref": "#/definitions/CartCurrencyAmountDTO"
+        }
+      },
+      "title": "CartCurrencyAmountDTOMap"
+    },
+    "CartPriceResultsDTO": {
+      "type": "object",
+      "properties": {
+        "currencies": {
+          "description": "Currency prices for the cart.",
+          "$ref": "#/definitions/CartCurrencyAmountDTOMap"
+        },
+        "totalPoints": {
+          "type": "integer",
+          "format": "int32",
+          "example": 12000,
+          "description": "Total points price.  Optional in the case of cash-only programs."
+        },
+        "unpromotedTotalPoints": {
+          "type": "integer",
+          "format": "int32",
+          "example": 156000,
+          "description": "Total points price, with no promotions applied.  Optional in the case of cash-only programs."
+        }
+      },
+      "title": "CartPriceResultsDTO",
+      "description": "Cart prices"
+    },
+    "CartPriceResultsDTOMap": {
+      "type": "object",
+      "required": [
+        "b2sMarkup",
+        "varMarkup"
+      ],
+      "properties": {
+        "b2sMarkup": {
+          "$ref": "#/definitions/CartPriceResultsDTO"
+        },
+        "displayPrice": {
+          "$ref": "#/definitions/CartPriceResultsDTO"
+        },
+        "varMarkup": {
+          "$ref": "#/definitions/CartPriceResultsDTO"
+        }
+      },
+      "title": "CartPriceResultsDTOMap"
+    },
+    "CartPricingResponseDTO": {
+      "type": "object",
+      "required": [
+        "prices"
+      ],
+      "properties": {
+        "currencyUnit": {
+          "type": "string"
+        },
+        "prices": {
+          "description": "Computed values of total Points/Prices",
+          "$ref": "#/definitions/CartPriceResultsDTOMap"
+        },
+        "targetCurrencies": {
+          "type": "array",
+          "example": [
+            "USD"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "CartPricingResponseDTO",
+      "description": "com.b2s.service.pricing.server.CartPricingResponseDTO"
+    }
+  }
+}

@@ -34,11 +34,16 @@ subprojects {
     dependencies {
         implementation("com.google.guava:guava:28.1-jre")
         implementation("org.apache.commons:commons-lang3:3.9")
+        implementation("org.joda:joda-money:1.0.1")
+        implementation("io.springfox:springfox-swagger2:2.9.2")
+        implementation("io.springfox:springfox-swagger-ui:2.9.2")
+        compileOnly("io.swagger:swagger-annotations:1.6.0")
 
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
 
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-guava")
+        implementation("com.fasterxml.jackson.datatype:jackson-datatype-joda")
         compileOnly("org.springframework.boot:spring-boot-configuration-processor")
 
         compileOnly("org.projectlombok:lombok:${lombokVersion}")

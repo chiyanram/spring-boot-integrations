@@ -4,3 +4,7 @@ spring:
 
 server:
   port: 9003
+
+host-var:
+  map:
+    localhost: test-sso

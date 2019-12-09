@@ -4,5 +4,10 @@ server:
 spring:
   application:
     name: spring-boot-cache-integration
+  h2:
+    console:
+      enabled: true
+  logging.level.com.hazelcast: DEBUG
 
-logging.level.com.hazelcast: DEBUG
+
+

@@ -12,6 +12,12 @@ import java.util.Set;
 @RestController
 public class EmployeeRestController {
 
+    private HostToVarConfiguration hostToVarConfiguration;
+
+    public EmployeeRestController(final HostToVarConfiguration hostToVarConfiguration) {
+        this.hostToVarConfiguration = hostToVarConfiguration;
+    }
+
     @PostMapping("/sets")
     public Set<String> sets(@RequestParam final Set<String> names) {
 

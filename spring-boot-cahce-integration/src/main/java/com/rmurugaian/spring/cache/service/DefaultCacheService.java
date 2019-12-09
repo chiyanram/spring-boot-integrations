@@ -1,6 +1,7 @@
 package com.rmurugaian.spring.cache.service;
 
 import com.google.common.collect.ImmutableSet;
+import com.rmurugaian.spring.cache.PersonRepo;
 import com.rmurugaian.spring.cache.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,17 +18,24 @@ public class DefaultCacheService implements CacheService {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultCacheService.class);
 
+    private final PersonRepo personRepo;
+
+    public DefaultCacheService(final PersonRepo personRepo) {
+        this.personRepo = personRepo;
+    }
+
     @Override
     @Cacheable(key = "'PERSONS'")
     public ImmutableSet<Person> fetchAll() {
         logger.info("Invoking person caches");
 
-        final Person element = new Person();
-        element.setName("Ram");
+        return personRepo.findAll().stream().collect(ImmutableSet.toImmutableSet());
 
-        return ImmutableSet.<Person>builder()
-            .add(element)
-            .build();
+    }
+
+    @Override
+    public Person save(final Person person) {
+        return personRepo.save(person);
     }
 
     @Override
@@ -37,6 +45,7 @@ public class DefaultCacheService implements CacheService {
 
     @Override
     public Person fetch(final String name) {
-        throw new UnsupportedOperationException("Not Implemented.");
+        return personRepo.findByName(name);
     }
+
 }

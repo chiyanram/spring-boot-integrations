@@ -10,6 +10,8 @@ public interface CacheService {
 
     ImmutableSet<Person> fetchAll();
 
+    Person save(final Person person);
+
     Person put(final Person person);
 
     Person fetch(final String name);
