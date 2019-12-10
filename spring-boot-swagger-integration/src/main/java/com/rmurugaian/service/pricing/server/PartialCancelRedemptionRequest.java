@@ -21,7 +21,7 @@ public interface PartialCancelRedemptionRequest {
     @ApiModelProperty(value = "Order ID assigned by Var from original redemption", required = true)
     String getVarOrderId();
 
-    @ApiModelProperty(value = "Unique ID assigned by B2S", required = true)
+    @ApiModelProperty(value = "Unique ID assigned by System", required = true)
         //TODO: When is this ID created and why isn't it on the full cancellation?
     String getCancellationId();
 
