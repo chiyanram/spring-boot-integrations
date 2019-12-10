@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author vmuniyandi 2/9/2017
+ * @author rmurugaian 2/9/2017
  */
 @Configuration
 @EnableSwagger2
@@ -58,8 +58,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
 
         return new ApiInfoBuilder()
-            .title("Pricing Service API")
-            .description("Service provides to access Pricing")
+            .title("Swagger Testing API")
+            .description("Service provides to access endpoints")
             .version("6.x")
             .build();
     }

@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.money.CurrencyUnit;
 
 /**
- * @author yjiao 2019-05-17
+ * @author rmurugaian 2019-05-17
  */
 @ApiModel(description = "com.rmurugaian.service.pricing.server.CartPricingResponseDTO")
 public class CartPricingResponseDTO {

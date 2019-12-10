@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 
 /**
- * @author pveerappan 2019-11-21
+ * @author rmurugaian 2019-11-21
  */
 @ApiModel
 public class CartCurrencyAmountDTOMap {

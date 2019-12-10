@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  */
 @RestController
 @Api
-public class PricingController {
+public class SwaggerController {
 
     @GetMapping("/prices")
     public CartPricingResponseDTO cartPricingResponseDTO() {
@@ -32,4 +32,8 @@ public class PricingController {
         return cartPricingResponseDTO;
     }
 
+    @GetMapping("/cancellations")
+    public PartialCancelRedemptionRequest partialCancelRedemptionRequest() {
+        return null;
+    }
 }

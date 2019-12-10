@@ -7,7 +7,7 @@ import org.joda.money.Money;
 import java.util.Optional;
 
 /**
- * @author yjiao 2019-07-26
+ * @author rmurugaian 2019-07-26
  */
 @ApiModel(description = "Cart currency amount")
 public class CartCurrencyAmountDTO {
