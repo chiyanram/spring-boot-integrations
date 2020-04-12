@@ -2,7 +2,7 @@ plugins {
     java
     groovy
     id("org.springframework.boot") version "2.2.6.RELEASE" apply false
-    id("com.google.cloud.tools.jib") version "2.1.0"
+    id("com.google.cloud.tools.jib") version "2.1.0" apply false
 }
 
 group = "com.rmurugaian.spring"
@@ -18,7 +18,7 @@ subprojects {
     apply(plugin = "groovy")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
-    apply(plugin = "com.google.cloud.tools.jib")
+
 
     java {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -55,13 +55,18 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
+}
+
+configure(subprojects - project(":spring-boot-activemq-integration")) {
+    apply(plugin = "com.google.cloud.tools.jib")
 
     configure<com.google.cloud.tools.jib.gradle.JibExtension> {
+        val dockerRepo = project.property("dockerRepo") as String
         from {
             image = "adoptopenjdk/openjdk11"
         }
         to {
-            image = "$project.dockerRepo/$project.name"
+            image = dockerRepo.plus("/").plus(project.name)
             tags = setOf(project.version as String)
         }
         container {
@@ -69,8 +74,5 @@ subprojects {
             jvmFlags = listOf("-Djava.security.egd=file:/dev/./urandom")
         }
     }
-
-
 }
-
 

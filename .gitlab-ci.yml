@@ -2,6 +2,14 @@ image: docker:latest
 services:
   - docker:dind
 
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/gradle
+
+cache:
+  paths:
+    - gradle/wrapper
+    - gradle/caches
+
 variables:
   DOCKER_DRIVER: overlay
   SPRING_PROFILES_ACTIVE: gitlab-ci
@@ -16,7 +24,7 @@ docker-login:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
 
 build:
-  image: gradle:6.1.1-jdk8
   stage: build
   script:
-    - gradle build jib -Djib.to.auth.username=gitlab-ci-token -Djib.to.auth.password=$CI_BUILD_TOKEN
+    - ./gradlew build jib -Djib.to.auth.username=gitlab-ci-token -Djib.to.auth.password=$CI_BUILD_TOKEN
+
