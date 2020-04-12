@@ -35,10 +35,11 @@ public class SpringCacheApplication {
     @Bean
     public CommandLineRunner commandLineRunner(final PersonRepo personRepo) {
 
-        return args -> Stream.of("Ram", "Vijay", "tamil").map(s -> {
-            final Person person = new Person();
-            person.setName(s);
-            return person;
-        }).forEach(personRepo::save);
+        return args -> Stream.of("Ram", "Vijay", "tamil")
+            .map(s -> {
+                final Person person = new Person();
+                person.setName(s);
+                return person;
+            }).forEach(personRepo::save);
     }
 }

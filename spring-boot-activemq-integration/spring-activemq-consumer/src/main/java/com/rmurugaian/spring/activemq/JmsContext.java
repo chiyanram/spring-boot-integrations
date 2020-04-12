@@ -1,6 +1,5 @@
 package com.rmurugaian.spring.activemq;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +12,12 @@ import javax.jms.ConnectionFactory;
 @Configuration
 class JmsContext {
 
-    @Autowired
-    private EventService eventService;
+
+    private final EventService eventService;
+
+    JmsContext(final EventService eventService) {
+        this.eventService = eventService;
+    }
 
     @JmsListener(
         destination = "events"

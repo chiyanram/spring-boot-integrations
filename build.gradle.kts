@@ -1,7 +1,8 @@
 plugins {
     java
     groovy
-    id("org.springframework.boot") version "2.2.0.RELEASE" apply false
+    id("org.springframework.boot") version "2.2.6.RELEASE" apply false
+    id("com.google.cloud.tools.jib") version "2.1.0"
 }
 
 group = "com.rmurugaian.spring"
@@ -10,9 +11,6 @@ repositories {
     mavenCentral()
 }
 
-val springCloudVersion = "Grrenwich.SR3"
-val lombokVersion = "1.18.4"
-
 subprojects {
     apply(plugin = "java")
     apply(plugin = "idea")
@@ -20,6 +18,7 @@ subprojects {
     apply(plugin = "groovy")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
+    apply(plugin = "com.google.cloud.tools.jib")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -46,8 +45,8 @@ subprojects {
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-joda")
         compileOnly("org.springframework.boot:spring-boot-configuration-processor")
 
-        compileOnly("org.projectlombok:lombok:${lombokVersion}")
-        annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
 
         testImplementation("org.codehaus.groovy:groovy-all:2.4.15")
         testImplementation("org.spockframework:spock-core:1.2-groovy-2.4")
@@ -56,6 +55,21 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
+
+    configure<com.google.cloud.tools.jib.gradle.JibExtension> {
+        from {
+            image = "adoptopenjdk/openjdk11"
+        }
+        to {
+            image = "$project.dockerRepo/$project.name"
+            tags = setOf(project.version as String)
+        }
+        container {
+            creationTime = "USE_CURRENT_TIMESTAMP"
+            jvmFlags = listOf("-Djava.security.egd=file:/dev/./urandom")
+        }
+    }
+
 
 }
 

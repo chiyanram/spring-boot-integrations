@@ -1,6 +1,8 @@
 rootProject.name = "Spring Boot Integrations"
 
-include("spring-boot-activemq-integration")
+include("spring-boot-activemq-integration:spring-activemq-consumer",
+        "spring-boot-activemq-integration:spring-activemq-consumer-two",
+        "spring-boot-activemq-integration:spring-activemq-producer")
 include("spring-boot-hibernate-locking")
 include("spring-boot-jpa-integration")
 include("spring-boot-redis-integration")
