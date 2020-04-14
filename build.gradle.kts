@@ -16,6 +16,7 @@ subprojects {
     apply(plugin = "idea")
     apply(plugin = "eclipse")
     apply(plugin = "groovy")
+    apply(plugin = "jacoco")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
@@ -51,10 +52,47 @@ subprojects {
         testImplementation("org.codehaus.groovy:groovy-all:2.4.15")
         testImplementation("org.spockframework:spock-core:1.2-groovy-2.4")
         testImplementation("org.spockframework:spock-spring:1.2-groovy-2.4")
+        testImplementation("com.athaydes:spock-reports:1.7.1") {
+            isTransitive = false
+        }
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
+
+    configure<org.springframework.boot.gradle.dsl.SpringBootExtension> {
+        buildInfo()
+    }
+
+    tasks.named("jacocoTestReport", JacocoReport::class) {
+        reports {
+            xml.isEnabled = false
+            csv.isEnabled = false
+        }
+    }
+
+    tasks.named("jacocoTestCoverageVerification", JacocoCoverageVerification::class) {
+        violationRules {
+            rule {
+                limit {
+                    minimum = "0.5".toBigDecimal()
+                }
+            }
+
+            rule {
+                enabled = false
+                element = "CLASS"
+                includes = listOf("org.gradle.*")
+
+                limit {
+                    counter = "LINE"
+                    value = "TOTALCOUNT"
+                    maximum = "0.3".toBigDecimal()
+                }
+            }
+        }
+    }
+
 }
 
 configure(subprojects - project(":spring-boot-activemq-integration")) {
