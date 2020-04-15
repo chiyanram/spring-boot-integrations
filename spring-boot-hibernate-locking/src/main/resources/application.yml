@@ -11,4 +11,7 @@ spring:
     password: sup3rSEC
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+    properties:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+

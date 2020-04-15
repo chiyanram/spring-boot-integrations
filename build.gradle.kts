@@ -1,6 +1,5 @@
 plugins {
     java
-    groovy
     id("org.springframework.boot") version "2.2.6.RELEASE" apply false
     id("com.google.cloud.tools.jib") version "2.1.0" apply false
 }
@@ -55,7 +54,8 @@ subprojects {
         testImplementation("com.athaydes:spock-reports:1.7.1") {
             isTransitive = false
         }
-
+        testImplementation("org.testcontainers:mssqlserver:1.13.0")
+        testImplementation("org.testcontainers:spock:1.13.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
