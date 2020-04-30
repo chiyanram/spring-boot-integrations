@@ -1,4 +1,4 @@
-package com.rmurugaian.spring.springsessionredisdemo;
+package com.rmurugaian.spring.redis;
 
 import org.junit.Ignore;
 import org.junit.Test;

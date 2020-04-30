@@ -9,5 +9,6 @@ build/
 */bin
 out/
 ./.idea
-
+bin/
+/*/bin
 logs

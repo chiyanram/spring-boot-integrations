@@ -10,11 +10,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class MvcConfig implements WebMvcConfigurer {
+public class ValidationConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
 
-    public MvcConfig(final ApplicationContext applicationContext) {
+    public ValidationConfig(final ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 

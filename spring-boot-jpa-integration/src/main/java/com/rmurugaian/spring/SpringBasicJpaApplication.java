@@ -2,32 +2,14 @@ package com.rmurugaian.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories
 public class SpringBasicJpaApplication {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(SpringBasicJpaApplication.class, args);
-    }
-
-}
-
-@RestController
-class PersonRestController {
-
-    private final PersonRepository personRepository;
-
-    PersonRestController(final PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
-
-    @GetMapping("/persons")
-    public List<Person> all() {
-        return personRepository.findAll();
     }
 
 }

@@ -1,8 +1,8 @@
 spring:
   redis:
-    host: ${REDIS_HOST}
-    password: ${REDIS_PASSWORD}
-    port: ${REDIS_PORT}
+    host: ${REDIS_HOST:localhost}
+    password: ${REDIS_PASSWORD:redis}
+    port: ${REDIS_PORT:6379}
   session:
     store-type: redis
   application:
