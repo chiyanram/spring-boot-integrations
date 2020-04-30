@@ -35,22 +35,28 @@ class PersonRestControllerIT extends Specification {
             .response
             .contentAsString
 
-        final List<Person> perosns = objectMapper.readValue(response, new TypeReference<List<Person>>() {})
-        perosns.size() == 3
-        with(perosns[0]) {
+        final List<Person> persons = objectMapper.readValue(response, new TypeReference<List<Person>>() {})
+        persons.size() == 3
+        with(persons[0]) {
             name == "Ram"
             sequence == 1
             status == "NEW"
+            createdAt
+            changedAt
         }
-        with(perosns[1]) {
+        with(persons[1]) {
             name == "Vijay"
             sequence == 2
             status == "NEW"
+            createdAt
+            changedAt
         }
-        with(perosns[2]) {
+        with(persons[2]) {
             name == "Ganesan"
             sequence == 3
             status == "NEW"
+            createdAt
+            changedAt
         }
     }
 

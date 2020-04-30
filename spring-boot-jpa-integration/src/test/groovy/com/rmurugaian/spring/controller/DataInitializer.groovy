@@ -17,14 +17,8 @@ class DataInitializer {
 
     @EventListener(ApplicationReadyEvent.class)
     void initData() {
-
         Arrays.stream("Ram", "Vijay", "Ganesan")
-            .map { it ->
-                Person.builder()
-                    .name(it)
-                    .status("NEW")
-                    .build()
-            }
+            .map { Person.create(it) }
             .forEach { personRepository.save(it) }
     }
 }
