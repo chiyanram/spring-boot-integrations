@@ -6,6 +6,7 @@ import com.rmurugaian.spring.cache.repository.PersonRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +46,11 @@ public class DefaultPersonService implements PersonService {
     @Override
     public Person fetch(final String name) {
         return personRepo.findByName(name);
+    }
+
+    @Override
+    @CacheEvict(key = "'PERSONS'")
+    public void refreshCache() {
     }
 
 }

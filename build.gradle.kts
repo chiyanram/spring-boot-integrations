@@ -93,6 +93,12 @@ subprojects {
         }
     }
 
+    tasks {
+        named("test", Test::class) {
+            systemProperty("testContainers", project.properties["testContainers"] as String)
+        }
+    }
+
 }
 
 configure(subprojects - project(":spring-boot-activemq-integration")) {

@@ -26,5 +26,11 @@ class DefaultPersonServiceIT extends Specification {
         then: "fetch all persons"
         def newPerons = personService.fetchAll()
         newPerons.size() == 3
+
+        when: "refresh cache"
+        personService.refreshCache()
+
+        then: "check persons"
+        personService.fetchAll().size() == 4
     }
 }

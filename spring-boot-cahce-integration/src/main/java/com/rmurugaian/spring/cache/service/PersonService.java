@@ -16,4 +16,5 @@ public interface PersonService {
 
     Person fetch(final String name);
 
+    void refreshCache();
 }

@@ -9,6 +9,8 @@ import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.test.context.ContextConfiguration
 import org.testcontainers.containers.MSSQLServerContainer
+import spock.lang.IgnoreIf
+import spock.lang.Shared
 import spock.lang.Specification
 
 import javax.sql.DataSource
@@ -16,9 +18,9 @@ import java.sql.Connection
 import java.sql.PreparedStatement
 
 @ContextConfiguration(initializers = Initializer.class)
-@SpringBootTest(classes = [HibernateLockingApplication.class],
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = [HibernateLockingApplication.class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Slf4j
+@IgnoreIf({ System.getProperty("testContainers", "false") == "false" })
 class LockingIntegrationSpec extends Specification {
 
     @Autowired
@@ -27,23 +29,21 @@ class LockingIntegrationSpec extends Specification {
     @Autowired
     private DataSource dataSource
 
-    private static MSSQLServerContainer SQL_SERVER = null
+    @Shared
+    private static MSSQLServerContainer container = null
 
-    def setupSpec() {
-        startTestContainer()
-    }
+    private static final boolean TEST_CONTAINERS = System.getProperty("testContainers", "false") == "true"
 
-    static def startTestContainer() {
-        if (!SQL_SERVER) {
-            SQL_SERVER = new MSSQLServerContainer()
-            SQL_SERVER.start()
+    def "setupSpec"() {
+        if (TEST_CONTAINERS && !container) {
+            container = new MSSQLServerContainer()
+            container.start()
         }
     }
 
     def "setup"() {
         logRepository.deleteAll()
     }
-
 
     def "deadlock"() {
         def student = new Student()
@@ -92,16 +92,17 @@ class LockingIntegrationSpec extends Specification {
 
         @Override
         void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-            log.info("Using database container {}:{}@{}", SQL_SERVER.username, SQL_SERVER.password, SQL_SERVER.jdbcUrl)
-            TestPropertyValues.of(
-                "spring.datasource.url=" + SQL_SERVER.jdbcUrl,
-                "spring.datasource.username=" + SQL_SERVER.username,
-                "spring.datasource.password=" + SQL_SERVER.password,
-                "spring.flyway.url=" + SQL_SERVER.jdbcUrl,
-                "spring.flyway.user=" + SQL_SERVER.username,
-                "spring.flyway.password=" + SQL_SERVER.password)
-                .applyTo(configurableApplicationContext.environment)
-
+            if (TEST_CONTAINERS) {
+                log.info("Using database container {}:{}@{}", container.username, container.password, container.jdbcUrl)
+                TestPropertyValues.of(
+                    "spring.datasource.url=" + container.jdbcUrl,
+                    "spring.datasource.username=" + container.username,
+                    "spring.datasource.password=" + container.password,
+                    "spring.flyway.url=" + container.jdbcUrl,
+                    "spring.flyway.user=" + container.username,
+                    "spring.flyway.password=" + container.password)
+                    .applyTo(configurableApplicationContext.environment)
+            }
         }
     }
 }
