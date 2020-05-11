@@ -1,7 +1,8 @@
 plugins {
     java
-    id("org.springframework.boot") version "2.2.6.RELEASE" apply false
+    id("org.springframework.boot") version "2.2.7.RELEASE" apply false
     id("com.google.cloud.tools.jib") version "2.1.0" apply false
+    id("name.remal.check-dependency-updates") version "1.0.189" apply false
 }
 
 group = "com.rmurugaian.spring"
@@ -18,11 +19,12 @@ subprojects {
     apply(plugin = "jacoco")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
+    apply(plugin = "name.remal.check-dependency-updates")
 
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_14
+        targetCompatibility = JavaVersion.VERSION_14
     }
 
     repositories {
@@ -31,12 +33,12 @@ subprojects {
     }
 
     dependencies {
-        implementation("com.google.guava:guava:28.1-jre")
-        implementation("org.apache.commons:commons-lang3:3.9")
+        implementation("com.google.guava:guava:29.0-jre")
+        implementation("org.apache.commons:commons-lang3:3.10")
         implementation("org.joda:joda-money:1.0.1")
         implementation("io.springfox:springfox-swagger2:2.9.2")
         implementation("io.springfox:springfox-swagger-ui:2.9.2")
-        compileOnly("io.swagger:swagger-annotations:1.6.0")
+        compileOnly("io.swagger:swagger-annotations:1.6.1")
 
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -54,8 +56,8 @@ subprojects {
         testImplementation("com.athaydes:spock-reports:1.7.1") {
             isTransitive = false
         }
-        testImplementation("org.testcontainers:mssqlserver:1.13.0")
-        testImplementation("org.testcontainers:spock:1.13.0")
+        testImplementation("org.testcontainers:mssqlserver:1.14.1")
+        testImplementation("org.testcontainers:spock:1.14.1")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
     }
@@ -107,7 +109,7 @@ configure(subprojects - project(":spring-boot-activemq-integration")) {
     configure<com.google.cloud.tools.jib.gradle.JibExtension> {
         val dockerRepo = project.property("dockerRepo") as String
         from {
-            image = "adoptopenjdk/openjdk11"
+            image = "adoptopenjdk/openjdk14"
         }
         to {
             image = dockerRepo.plus("/").plus(project.name)
