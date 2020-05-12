@@ -1,6 +1,7 @@
 package com.rmurugaian.spring.pdf.controller;
 
 import com.rmurugaian.spring.pdf.dto.DocumentGeneratorRequest;
+import com.rmurugaian.spring.pdf.dto.DocumentType;
 import com.rmurugaian.spring.pdf.service.DocumentGeneratorProvider;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,14 +33,17 @@ public class DocumentController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<InputStreamResource> createDocument(
-        @RequestBody final DocumentGeneratorRequest documentGeneratorRequest) {
+        @RequestBody final DocumentGeneratorRequest request) {
 
-        final InputStream documentStream = documentGeneratorProvider.generateDocument(documentGeneratorRequest);
+        final InputStream documentStream = documentGeneratorProvider.generateDocument(request);
+
+        final DocumentType documentType = request.getDocumentType();
+        final String contentDisposition = documentType.getDocumentFileName().apply(request.getDocumentName());
 
         return ResponseEntity
             .ok()
-            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment")
-            .contentType(documentGeneratorRequest.getDocumentType().getMediaType())
+            .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
+            .contentType(documentType.getMediaType())
             .body(new InputStreamResource(documentStream));
     }
 }
