@@ -2,10 +2,10 @@ package com.rmurugaian.service.pricing.server;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -28,9 +28,10 @@ import java.util.Optional;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    private static final ImmutableSet<String> INTERNAL_APIS = ImmutableSet.of("/cancellations");
+
     private final TypeResolver typeResolver;
 
-    @Autowired
     public SwaggerConfig(final TypeResolver typeResolver) {
         this.typeResolver = typeResolver;
     }
@@ -42,7 +43,9 @@ public class SwaggerConfig {
             .apiInfo(apiInfo())
             .select()
             .apis(RequestHandlerSelectors.basePackage("com.rmurugaian.service.pricing.server"))
+            .paths(path -> !INTERNAL_APIS.contains(path))
             .build()
+            .additionalModels(typeResolver.resolve(DummyDTO.class))
             .genericModelSubstitutes(Optional.class)
             .directModelSubstitute(CurrencyUnit.class, String.class)
             .directModelSubstitute(Money.class, String.class)

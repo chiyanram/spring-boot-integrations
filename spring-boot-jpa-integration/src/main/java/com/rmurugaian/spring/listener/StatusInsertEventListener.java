@@ -8,10 +8,8 @@ import org.hibernate.event.spi.PreInsertEventListener;
 
 @Log4j2
 public class StatusInsertEventListener implements PreInsertEventListener {
-    private static final long serialVersionUID = 6835180783549033490L;
-
     public static final StatusInsertEventListener INSTANCE = new StatusInsertEventListener();
-
+    private static final long serialVersionUID = 6835180783549033490L;
     private static final String STATUS = "status";
     private static final String NEW_STATUS = "NEW";
 

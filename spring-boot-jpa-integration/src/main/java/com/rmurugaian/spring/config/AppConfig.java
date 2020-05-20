@@ -16,7 +16,7 @@ import java.util.Collections;
 public class AppConfig {
 
     @Bean
-    @ConfigurationProperties(prefix="security.datasource")
+    @ConfigurationProperties(prefix = "security.datasource")
     public DataSource securityDataSource() {
         return DataSourceBuilder.create().build();
     }

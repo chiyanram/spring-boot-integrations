@@ -25,7 +25,7 @@ public class EventListenerIntegrator implements Integrator {
 
         eventListenerRegistry.appendListeners(PRE_INSERT, sequenceEventListener);
         eventListenerRegistry.appendListeners(PRE_INSERT, StatusInsertEventListener.INSTANCE);
-        
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.rmurugaian.spring;
 
+import com.rmurugaian.spring.util.SomeUtility;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rest")
-public class Controller {
+public class Controller implements SomeUtility {
 
     private final AsyncClass asyncClass;
 

@@ -6,7 +6,3 @@ spring:
       enabled: true
 
 
-security.datasource.jdbc-url: jdbc:mysql://localhost:3306/spring_security_demo_bcrypt?useSSL=false&serverTimezone=UTC
-security.datasource.username: springstudent
-security.datasource.password: springstudent
-

@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.Base64;
 
 import static com.itextpdf.text.pdf.BaseFont.EMBEDDED;
 import static com.itextpdf.text.pdf.BaseFont.IDENTITY_H;
@@ -39,8 +40,33 @@ class PdfDocumentGenerator implements DocumentGenerator {
         final String template =
             new String(Files.readAllBytes(new ClassPathResource("template.html").getFile().toPath()));
 
+        final String footer =
+            new String(Files.readAllBytes(new ClassPathResource("footer.html").getFile().toPath()));
+
+        final String header =
+            new String(Files.readAllBytes(new ClassPathResource("header.html").getFile().toPath()));
+
+        final String content =
+            new String(Files.readAllBytes(new ClassPathResource("policy-contenet.html").getFile().toPath()));
+
+        final byte[] logoImage = Files.readAllBytes(new ClassPathResource("logo.jpg").getFile().toPath());
+        final byte[] logoCss = Files.readAllBytes(new ClassPathResource("style.css").getFile().toPath());
+        final byte[] footerCss = Files.readAllBytes(new ClassPathResource("footer.css").getFile().toPath());
+
         final Context context = new Context();
         context.setVariable("data", documentGeneratorRequest.getData());
+        context.setVariable("image", new String(Base64.getEncoder().encode(logoImage), StandardCharsets.UTF_8));
+        context.setVariable(
+            "style",
+            templateEngine.process("<style>".concat(new String(logoCss)).concat("</style>"), context));
+        context.setVariable(
+            "footerStyle",
+            templateEngine.process("<style>".concat(new String(footerCss)).concat("</style>"), context));
+
+        context.setVariable("footer", templateEngine.process(footer, context));
+        context.setVariable("header", templateEngine.process(header, context));
+        context.setVariable("content", templateEngine.process(content, context));
+
         final String renderedHtmlContent = templateEngine.process(template, context);
 
         try (final ByteArrayInputStream pdfTemplateHtml =
