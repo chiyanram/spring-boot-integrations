@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "2.2.7.RELEASE" apply false
+    id("org.springframework.boot") version "2.3.3.RELEASE" apply false
     id("com.google.cloud.tools.jib") version "2.1.0" apply false
     id("name.remal.check-dependency-updates") version "1.0.189" apply false
 }
@@ -45,7 +45,7 @@ subprojects {
 
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-guava")
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-joda")
-        compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+        annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")

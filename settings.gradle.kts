@@ -1,6 +1,7 @@
 rootProject.name = "Spring Boot Integrations"
 
-include("spring-boot-activemq-integration:spring-activemq-consumer",
+include("spring-boot-activemq-integration",
+        "spring-boot-activemq-integration:spring-activemq-consumer",
         "spring-boot-activemq-integration:spring-activemq-consumer-two",
         "spring-boot-activemq-integration:spring-activemq-producer")
 include("spring-boot-hibernate-locking")
@@ -12,3 +13,6 @@ include("spring-boot-https-integration")
 include("spring-boot-custom-validation-integration")
 include("spring-boot-pdf-integration")
 include("spring-boot-async-integration")
+include("spring-boot-sftp-file-integration")
+include("spring-kafka-integration")
+include("dynamic-model-hibernate")
