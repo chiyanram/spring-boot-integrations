@@ -2,7 +2,6 @@ plugins {
     java
     id("org.springframework.boot") version "2.3.3.RELEASE" apply false
     id("com.google.cloud.tools.jib") version "2.1.0" apply false
-    id("name.remal.check-dependency-updates") version "1.0.189" apply false
 }
 
 group = "com.rmurugaian.spring"
@@ -14,13 +13,10 @@ repositories {
 subprojects {
     apply(plugin = "java")
     apply(plugin = "idea")
-    apply(plugin = "eclipse")
     apply(plugin = "groovy")
     apply(plugin = "jacoco")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
-    apply(plugin = "name.remal.check-dependency-updates")
-
 
     java {
         sourceCompatibility = JavaVersion.VERSION_14
@@ -36,9 +32,6 @@ subprojects {
         implementation("com.google.guava:guava:29.0-jre")
         implementation("org.apache.commons:commons-lang3:3.10")
         implementation("org.joda:joda-money:1.0.1")
-        implementation("io.springfox:springfox-swagger2:2.9.2")
-        implementation("io.springfox:springfox-swagger-ui:2.9.2")
-        compileOnly("io.swagger:swagger-annotations:1.6.1")
 
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -101,24 +94,5 @@ subprojects {
         }
     }
 
-}
-
-configure(subprojects - project(":spring-boot-activemq-integration")) {
-    apply(plugin = "com.google.cloud.tools.jib")
-
-    configure<com.google.cloud.tools.jib.gradle.JibExtension> {
-        val dockerRepo = project.property("dockerRepo") as String
-        from {
-            image = "adoptopenjdk/openjdk14"
-        }
-        to {
-            image = dockerRepo.plus("/").plus(project.name)
-            tags = setOf(project.version as String)
-        }
-        container {
-            creationTime = "USE_CURRENT_TIMESTAMP"
-            jvmFlags = listOf("-Djava.security.egd=file:/dev/./urandom")
-        }
-    }
 }
 
