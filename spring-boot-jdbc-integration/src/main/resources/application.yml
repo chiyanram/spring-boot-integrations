@@ -1,0 +1,19 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databasename=Spring_Demo_IT;sendStringParametersAsUnicode=false
+    username: demouser
+    password: sup3rSEC
+    initialization-mode: always
+    continue-on-error: true
+  application:
+    name: 'explore-mssql-java'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

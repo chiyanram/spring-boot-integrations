@@ -1,0 +1,15 @@
+dependencies {
+
+    implementation 'org.springframework.kafka:spring-kafka'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation("org.testcontainers:mssqlserver:1.14.0")
+}
+
+
+sourceSets {
+    main {
+        resources {
+            exclude "/log4jconfig/**"
+        }
+    }
+}

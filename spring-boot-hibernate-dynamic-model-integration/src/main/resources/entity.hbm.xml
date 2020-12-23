@@ -1,0 +1,13 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class entity-name="Book" where="deleted_at is null">
+        <id name="pkId" column="pk_id" length="32" type="long"/>
+        <property name="deletedAt" type="timestamp" column="deleted_at"/>
+        <property name="title" not-null="true" length="50" type="string"/>
+        <many-to-one name="author" column="author_id" class="Author" cascade="all"/>
+    </class>
+</hibernate-mapping>

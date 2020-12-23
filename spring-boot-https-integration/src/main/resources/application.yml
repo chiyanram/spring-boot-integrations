@@ -1,0 +1,14 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:identity.jks
+    key-password: secret
+    key-store-password: secret
+    enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

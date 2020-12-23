@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class entity-name="Account">
+        <id name="pkId" column="pk_id" length="32" type="long"/>
+        <discriminator column="type"/>
+        <property name="balance" not-null="true" type="big_decimal"/>
+        <property name="interestRate" not-null="true" type="big_decimal"/>
+        <property name="owner" not-null="true" type="string"/>
+        <subclass entity-name="DebitAccount" extends="Account" discriminator-value="DebitAccount">
+            <property name="overdraftFee" type="big_decimal"/>
+        </subclass>
+        <subclass entity-name="CreditAccount" extends="Account" discriminator-value="CreditAccount">
+            <property name="creditLimit" type="big_decimal"/>
+        </subclass>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    password: ${REDIS_PASSWORD:redis}
+    port: ${REDIS_PORT:6379}
+  session:
+    store-type: redis
+  application:
+    name: spring-boot-redis

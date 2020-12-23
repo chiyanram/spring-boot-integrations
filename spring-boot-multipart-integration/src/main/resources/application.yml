@@ -1,0 +1,10 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: explore-file-handling
+
+file:
+  allowed:
+    size: 10 #MB
