@@ -3,16 +3,20 @@ rootProject.name = "Spring Boot Integrations"
 include("spring-boot-activemq-integration",
         "spring-boot-activemq-integration:spring-activemq-consumer",
         "spring-boot-activemq-integration:spring-activemq-consumer-two",
-        "spring-boot-activemq-integration:spring-activemq-producer")
-include("spring-boot-hibernate-locking")
-include("spring-boot-jpa-integration")
-include("spring-boot-redis-integration")
-include("spring-boot-cahce-integration")
-include("spring-boot-swagger-integration")
-include("spring-boot-https-integration")
-include("spring-boot-custom-validation-integration")
-include("spring-boot-pdf-integration")
-include("spring-boot-async-integration")
-include("spring-boot-sftp-file-integration")
-include("spring-kafka-integration")
-include("dynamic-model-hibernate")
+        "spring-boot-activemq-integration:spring-activemq-producer",
+        "spring-boot-cache-integration",
+        "spring-boot-graphql-integration",
+        "spring-boot-hibernate-integration",
+        "spring-boot-hibernate-locking",
+        "spring-boot-https-integration",
+        "spring-boot-jdbc-integration",
+        "spring-boot-jpa-integration",
+        "spring-boot-kafka-integration",
+        "spring-boot-multipart-integration",
+        "spring-boot-pdf-integration",
+        "spring-boot-redis-integration",
+        "spring-boot-sftp-file-integration",
+        "spring-boot-swagger-integration",
+        "spring-boot-hibernate-dynamic-filter-integration",
+        "spring-boot-hibernate-dynamic-model-integration",
+        "spring-boot-input-validation-integration")

@@ -2,7 +2,7 @@ package com.rmurugaian.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.ErrorHandler;
 import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
@@ -14,8 +14,8 @@ import java.util.List;
 public class AppConfig {
 
     @Bean
-    public DeadLetterPublishingRecoverer recoverer(KafkaTemplate<String, List<String>> template) {
-        return new DeadLetterPublishingRecoverer(template);
+    public DeadLetterPublishingRecoverer recoverer(final KafkaOperations<String, List<String>> kafkaOperations) {
+        return new DeadLetterPublishingRecoverer(kafkaOperations);
     }
 
     @Bean

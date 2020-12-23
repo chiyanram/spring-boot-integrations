@@ -2,6 +2,9 @@ package com.rmurugaian.rd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestOperations;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class FileHandlingApplication {
@@ -12,7 +15,6 @@ public class FileHandlingApplication {
 
     @Bean
     public RestOperations restOperations() {
-
         return new RestTemplate();
     }
 }

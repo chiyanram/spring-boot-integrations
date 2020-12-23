@@ -9,6 +9,7 @@ import springfox.documentation.schema.ModelProperty;
 import springfox.documentation.schema.ResolvedTypes;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.schema.EnumTypeDeterminer;
 import springfox.documentation.spi.schema.ModelBuilderPlugin;
 import springfox.documentation.spi.schema.contexts.ModelContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
@@ -28,13 +29,16 @@ public class PricingApiModelPlugin implements ModelBuilderPlugin {
 
     private final TypeResolver typeResolver;
     private final TypeNameExtractor typeNameExtractor;
+    private final EnumTypeDeterminer enumTypeDeterminer;
 
     public PricingApiModelPlugin(
-        final TypeResolver typeResolver,
-        final TypeNameExtractor typeNameExtractor) {
+            final TypeResolver typeResolver,
+            final TypeNameExtractor typeNameExtractor,
+            final EnumTypeDeterminer enumTypeDeterminer) {
 
         this.typeResolver = typeResolver;
         this.typeNameExtractor = typeNameExtractor;
+        this.enumTypeDeterminer = enumTypeDeterminer;
     }
 
     @Override
@@ -59,38 +63,38 @@ public class PricingApiModelPlugin implements ModelBuilderPlugin {
         final Map<String, ModelProperty> currenciesProperties = new HashMap<>();
         CURRENCIES.forEach(currencyUnit -> {
             final ModelProperty currencyProperty = new ModelPropertyBuilder()
-                .name(currencyUnit)
-                .type(typeResolver.resolve(CartCurrencyAmountDTO.class))
-                .required(true)
-                .isHidden(false)
-                .build();
-            currencyProperty.updateModelRef(ResolvedTypes.modelRefFactory(context, typeNameExtractor));
+                    .name(currencyUnit)
+                    .type(typeResolver.resolve(CartCurrencyAmountDTO.class))
+                    .required(true)
+                    .isHidden(false)
+                    .build();
+            currencyProperty.updateModelRef(ResolvedTypes.modelRefFactory(context, enumTypeDeterminer, typeNameExtractor));
             currenciesProperties.put(currencyUnit, currencyProperty);
         });
 
         context.getBuilder()
-            .name("CartCurrencyAmountDTOMap")
-            .properties(currenciesProperties)
-            .build();
+                .name("CartCurrencyAmountDTOMap")
+                .properties(currenciesProperties)
+                .build();
     }
 
     private void processPricesMap(final ModelContext context) {
         final Map<String, ModelProperty> pricesProperties = new HashMap<>();
         FIELDS
-            .forEach(pricingField -> {
-                final ModelProperty currencyProperty = new ModelPropertyBuilder()
-                    .name(pricingField)
-                    .type(typeResolver.resolve(CartPriceResultsDTO.class))
-                    .required(true)
-                    .isHidden(false)
-                    .build();
-                currencyProperty.updateModelRef(ResolvedTypes.modelRefFactory(context, typeNameExtractor));
-                pricesProperties.put(pricingField, currencyProperty);
-            });
+                .forEach(pricingField -> {
+                    final ModelProperty currencyProperty = new ModelPropertyBuilder()
+                            .name(pricingField)
+                            .type(typeResolver.resolve(CartPriceResultsDTO.class))
+                            .required(true)
+                            .isHidden(false)
+                            .build();
+                    currencyProperty.updateModelRef(ResolvedTypes.modelRefFactory(context, enumTypeDeterminer, typeNameExtractor));
+                    pricesProperties.put(pricingField, currencyProperty);
+                });
 
         context.getBuilder()
-            .name("CartPriceResultsDTOMap")
-            .properties(pricesProperties)
-            .build();
+                .name("CartPriceResultsDTOMap")
+                .properties(pricesProperties)
+                .build();
     }
 }

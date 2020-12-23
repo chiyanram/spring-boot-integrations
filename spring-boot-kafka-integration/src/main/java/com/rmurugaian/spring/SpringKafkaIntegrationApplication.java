@@ -7,19 +7,13 @@ import org.springframework.context.event.EventListener;
 
 @SpringBootApplication
 public class SpringKafkaIntegrationApplication {
-
-    private final SimpleProducer simpleProducer;
-
-    public SpringKafkaIntegrationApplication(final SimpleProducer simpleProducer) {
-        this.simpleProducer = simpleProducer;
-    }
-
-    public static void main(String[] args) {
+    
+    public static void main(final String[] args) {
         SpringApplication.run(SpringKafkaIntegrationApplication.class, args);
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void init() {
+    public void init(final SimpleProducer simpleProducer) {
         simpleProducer.sendMessage("Hello Hai");
     }
 }
